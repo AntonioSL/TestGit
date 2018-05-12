@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{error}}{% endblock %}
+{% block contenido %}
+       <h1>{{error}}</h1>
+       <img src="{{ url_for('static', filename='img/descarga.jpg')}}"/>
+       <form action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
+			{{ form.csrf_token }}
+			{{form.photo.label() }}{{form.photo()}}<br/>
+			<br/>
+			{{form.submit()}}
+		</form>
+{% endblock %}
